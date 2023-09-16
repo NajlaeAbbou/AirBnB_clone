@@ -5,9 +5,10 @@ from uuid import uuid4
 import models
 from datetime import datetime
 
+
 class BaseModel:
     """attributes and methods of basemodel class"""
-    
+
     def __init__(self, *args, **kwargs):
         """Initialization of BaseModel
 
@@ -32,7 +33,11 @@ class BaseModel:
     def __str__(self):
         """string representation of the instance"""
 
-        return "[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__)
+        return "[{}] ({}) {}".format(
+            self.__class__.__name__,
+            self.id,
+            self.__dict__
+            )
 
     def save(self):
         """Save updates to update_at"""
@@ -46,5 +51,3 @@ class BaseModel:
         dictionnary["created_at"] = self.created_at.isoformat()
         dictionnary["updated_at"] = self.updated_at.isoformat()
         return dictionnary
-
-

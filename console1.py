@@ -61,7 +61,7 @@ class HBNBCommand(cmd.Cmd):
 
     def default(self, arg):
         """Default behavior"""
-        argdict = {
+        diction = {
             "all": self.do_all,
             "show": self.do_show,
             "destroy": self.do_destroy,
@@ -123,7 +123,8 @@ class HBNBCommand(cmd.Cmd):
             models.storage.save()
 
     def do_all(self, arg):
-        """Prints all string repr of all inst"""
+        """Prints all string repr of all inst
+        add using <class name>.all()."""
         argss = analyse(arg)
         if len(argss) > 0 and argss[0] not in HBNBCommand.__classes:
             print("** class doesn't exist **")
@@ -180,14 +181,14 @@ class HBNBCommand(cmd.Cmd):
                     ob.__dict__[key] = value
         models.storage.save()
 
-        def do_count(self, arg):
-            """number of instances"""
-            argss = analyse(arg)
-            c = 0
-            for ob in models.storage.all().values():
-                if argss[0] == ob.__class__.__name__:
-                    c += 1
-                    print(c)
+    def do_count(self, arg):
+        """number of instances"""
+        argss = analyse(arg)
+        c = 0
+        for ob in models.storage.all().values():
+            if argss[0] == ob.__class__.__name__:
+                c += 1
+                print(c)
 
 
 if __name__ == "__main__":

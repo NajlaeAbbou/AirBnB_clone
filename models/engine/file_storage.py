@@ -1,11 +1,13 @@
 #!/usr/bin/python3
 """FileStorage class"""
+
 import json
 from models.base_model import BaseModel
 
 
 class FileStorage:
-    """Serializes inst to a JSON file and deserializes JSON file to inst
+    """Serializes inst to a JSON file and deserializes
+    JSON file to inst
 
     Attributes:
         __file_path : path to JSON file

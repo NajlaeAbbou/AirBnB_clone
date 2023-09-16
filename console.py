@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """Console hbnb"""
 import re
 from shlex import split
@@ -17,12 +18,13 @@ def analyse(arg):
             lx = split(arg[:crochets.span()[0]])
             mylt = [i.strip(",") for i in lx]
             mylt.append(crochets.group())
-            return mylt
+            return (mylt)
     else:
         lx = split(arg[:accollade.span()[0]])
         mylt = [i.strip(",") for i in lx]
         mylt.append(accollade.group())
         return mylt
+
 
 class HBNBCommand(cmd.Cmd):
     """HBNB command interpreter"""
@@ -87,7 +89,7 @@ class HBNBCommand(cmd.Cmd):
         """Prints string repres ofan inst based on class name and id"""
         argss = analyse(arg)
         diction = models.storage.all()
-        if len(argss)== 0:
+        if len(argss) == 0:
             print("** class name missing **")
         elif argss[0] not in HBNBCommand.__classes:
             print("** class doesn't exist **")
@@ -123,9 +125,9 @@ class HBNBCommand(cmd.Cmd):
             ob = []
             for oj in models.storage.all().values():
                 if len(argss) > 0 and argss[0] == oj.__class__.__name__:
-                        ob.append(oj.__str__())
+                    ob.append(oj.__str__())
                 elif len(argss) == 0:
-                        ob.append(oj.__str__())
+                    ob.append(oj.__str__())
             print(ob)
 
     def do_update(self, arg):
@@ -180,8 +182,6 @@ class HBNBCommand(cmd.Cmd):
                 if argss[0] == ob.__class__.__name__:
                     c += 1
                     print(c)
-
-
 
 
 if __name__ == "__main__":

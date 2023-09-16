@@ -27,7 +27,7 @@ class TestBaseModel_instantiation(unittest.TestCase):
         self.assertEqual(datetime, type(BaseModel().updated_at))
 
     def test_twomodels_uniqueids(self):
-        id1= BaseModel()
+        id1 = BaseModel()
         id2 = BaseModel()
         self.assertNotEqual(id1.id, id2.id)
 

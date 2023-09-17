@@ -123,8 +123,7 @@ class HBNBCommand(cmd.Cmd):
             models.storage.save()
 
     def do_all(self, arg):
-        """Prints all string repr of all inst
-        add using <class name>.all()."""
+        """Prints all string repr of all inst"""
         argss = analyse(arg)
         if len(argss) > 0 and argss[0] not in HBNBCommand.__classes:
             print("** class doesn't exist **")

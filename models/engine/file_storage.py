@@ -16,11 +16,11 @@ from models.review import Review
 class FileStorage:
     """Serializes inst to a JSON file and deserializes
     JSON file to inst
-
-    Attributes:
+    Args:
         __file_path : path to JSON file
         __objects : store all in <class name>.id
     """
+
     __file_path = "file.json"
     __objects = {}
 
